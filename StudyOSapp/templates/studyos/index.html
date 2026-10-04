@@ -1,0 +1,34 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>StudyOS</title>
+</head>
+<header>
+    <h1>StudyOS - Best platform to achieve your goals</h1>
+</header>
+<nav>
+    <ul>
+        <li><a href="{% url 'studyos:home-page' %}">Home</a></li>
+        <li><a href="{% url 'studyos:all-goals' %}">Show all goals</a></li>
+        <li><a href="{% url 'studyos:add-task' %}">Add new task</a></li>
+    </ul>
+</nav>
+
+<body>
+    <main>
+        {% block content %}
+
+        {% endblock %}
+    </main>
+
+</body>
+<footer>
+    <p>All right a reserved ® - Mohamed Amine Ben Mohamed 2026</p>
+</footer>
+
+</html>

@@ -1,0 +1,926 @@
+/* =========================================================
+   StudyOS — Global Styles
+   ========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg: #fafafa;
+    --surface: #ffffff;
+    --surface-soft: #f7f7f7;
+
+    --text: #222222;
+    --text-light: #777777;
+
+    --border: #e9e9e9;
+
+    --pink: #f3cbd7;
+    --pink-light: #fdf1f5;
+    --pink-dark: #c9859d;
+
+    --green: #dff3e7;
+    --green-text: #3c8057;
+
+    --yellow: #fff1c9;
+    --yellow-text: #9a7514;
+
+    --red: #f8dddd;
+    --red-text: #a64b4b;
+
+    --sidebar-width: 230px;
+
+    --radius: 12px;
+    --radius-small: 8px;
+
+    --shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+
+    --transition: 0.2s ease;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+header {
+    position: fixed;
+    top: 0;
+    left: var(--sidebar-width);
+    right: 0;
+
+    height: 80px;
+
+    display: flex;
+    align-items: center;
+
+    padding: 0 40px;
+
+    background: rgba(255, 255, 255, 0.95);
+    border-bottom: 1px solid var(--border);
+
+    z-index: 10;
+}
+
+header h1 {
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: -0.3px;
+}
+/*
+header h1::after {
+    content: "  Best platform to achieve your goals";
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--text-light);
+}
+*/
+
+/* =========================================================
+   SIDEBAR
+   ========================================================= */
+
+/*
+   The nav is converted into a fixed sidebar.
+*/
+
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+
+    width: var(--sidebar-width);
+
+    background: var(--surface);
+
+    border-right: 1px solid var(--border);
+
+    padding: 30px 18px;
+
+    z-index: 20;
+}
+
+nav ul {
+    list-style: none;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 7px;
+
+    margin-top: 70px;
+}
+
+nav li a {
+    display: block;
+
+    padding: 11px 14px;
+
+    color: var(--text-light);
+    text-decoration: none;
+
+    border-radius: var(--radius-small);
+
+    font-size: 14px;
+
+    transition:
+        background var(--transition),
+        color var(--transition),
+        transform var(--transition);
+}
+
+nav li a:hover {
+    background: var(--pink-light);
+    color: var(--text);
+    transform: translateX(2px);
+}
+
+
+/* =========================================================
+   MAIN CONTENT
+   ========================================================= */
+
+body > main,
+main {
+    margin-left: var(--sidebar-width);
+
+    padding:
+        120px
+        40px
+        80px;
+
+    max-width: 1200px;
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+footer {
+    margin-left: var(--sidebar-width);
+
+    padding: 25px 40px;
+
+    border-top: 1px solid var(--border);
+
+    color: #999999;
+
+    font-size: 12px;
+    
+    text-align: center;
+}
+
+
+/* =========================================================
+   GENERAL LINKS
+   ========================================================= */
+
+a {
+    color: var(--text);
+}
+
+a:hover {
+    color: var(--pink-dark);
+}
+
+
+/* =========================================================
+   HOME PAGE
+   ========================================================= */
+
+#day {
+    font-size: 32px;
+    font-weight: 600;
+
+    margin-bottom: 8px;
+
+    letter-spacing: -1px;
+}
+
+#time_dispo {
+    display: inline-block;
+
+    margin-bottom: 30px;
+
+    padding: 7px 12px;
+
+    background: var(--pink-light);
+
+    color: var(--pink-dark);
+
+    border-radius: 50px;
+
+    font-size: 13px;
+    font-weight: 500;
+}
+
+
+/* =========================================================
+   TASK CARDS — HOME
+   ========================================================= */
+
+.task_to_achive {
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+
+    border-radius: var(--radius);
+
+    padding: 20px;
+
+    margin-bottom: 12px;
+
+    box-shadow: var(--shadow);
+
+    transition:
+        transform var(--transition),
+        box-shadow var(--transition),
+        border-color var(--transition);
+}
+
+.task_to_achive:hover {
+    transform: translateY(-2px);
+
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+
+    border-color: #dddddd;
+}
+
+.task_to_achive h2 {
+    display: inline;
+
+    font-size: 13px;
+
+    color: var(--text-light);
+
+    font-weight: 500;
+}
+
+.task_to_achive p {
+    display: inline;
+
+    font-size: 15px;
+
+    margin-right: 20px;
+}
+
+
+/* =========================================================
+   DONE BUTTON
+   ========================================================= */
+
+.done_button {
+    margin-top: 16px;
+
+    border: none;
+
+    padding: 9px 18px;
+
+    border-radius: 50px;
+
+    background: var(--pink);
+
+    color: #5c3b47;
+
+    font-size: 13px;
+
+    cursor: pointer;
+
+    transition:
+        background var(--transition),
+        transform var(--transition);
+}
+
+.done_button:hover {
+    background: #eab5c6;
+
+    transform: translateY(-1px);
+}
+
+.done_button:active {
+    transform: scale(0.97);
+}
+
+
+/* =========================================================
+   EMPTY TASKS
+   ========================================================= */
+
+.No_tasks {
+    padding: 40px;
+
+    text-align: center;
+
+    color: var(--text-light);
+
+    background: var(--surface);
+
+    border: 1px dashed var(--border);
+
+    border-radius: var(--radius);
+}
+
+
+/* =========================================================
+   ALL GOALS PAGE
+   ========================================================= */
+
+#add_goal_button {
+    margin-bottom: 25px;
+}
+
+#add_goal_button a {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 42px;
+    height: 42px;
+
+    border-radius: 50%;
+
+    background: var(--pink);
+
+    color: #5c3b47;
+
+    text-decoration: none;
+
+    font-size: 24px;
+    font-weight: 300;
+
+    transition:
+        transform var(--transition),
+        background var(--transition);
+}
+
+#add_goal_button a:hover {
+    background: #eab5c6;
+
+    transform: rotate(90deg);
+}
+
+
+/* =========================================================
+   GOAL CARD
+   ========================================================= */
+
+.goal {
+    display: grid;
+
+    grid-template-columns:
+        minmax(180px, 2fr)
+        1fr
+        1fr
+        1fr;
+
+    align-items: center;
+
+    gap: 15px;
+
+    padding: 18px 20px;
+
+    margin-bottom: 10px;
+
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+
+    border-radius: var(--radius);
+
+    box-shadow: var(--shadow);
+
+    transition:
+        transform var(--transition),
+        border-color var(--transition),
+        box-shadow var(--transition);
+}
+
+.goal:hover {
+    transform: translateY(-2px);
+
+    border-color: #dddddd;
+
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+}
+
+.goal_name a {
+    font-weight: 600;
+
+    text-decoration: none;
+
+    font-size: 15px;
+}
+
+.goal_name a:hover {
+    color: var(--pink-dark);
+}
+
+.goal_deadline,
+.goal_priority,
+.goal_date_created {
+    color: var(--text-light);
+
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   NO GOALS
+   ========================================================= */
+
+#no_goal {
+    padding: 50px;
+
+    text-align: center;
+
+    color: var(--text-light);
+
+    background: var(--surface);
+
+    border: 1px dashed var(--border);
+
+    border-radius: var(--radius);
+}
+
+
+/* =========================================================
+   GOAL DETAILS
+   ========================================================= */
+
+#goal_details {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 10px;
+
+    margin-bottom: 25px;
+}
+
+#goal_details span {
+    padding: 8px 13px;
+
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+
+    border-radius: 50px;
+
+    color: var(--text-light);
+
+    font-size: 13px;
+}
+
+#goal_details span form button {
+    padding: 8px 13px;
+
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+
+    border-radius: 50px;
+
+    color: var(--text-light);
+
+    font-size: 13px;
+}
+
+#goal_details span:first-child {
+    background: var(--pink-light);
+
+    color: var(--text);
+
+    border-color: transparent;
+
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   GOAL TASKS
+   ========================================================= */
+
+#goal_detail {
+    margin-top: 10px;
+}
+
+#number_tasks {
+    margin-bottom: 15px;
+
+    color: var(--text-light);
+
+    font-size: 14px;
+}
+
+.task_details {
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+
+    border-radius: var(--radius);
+
+    padding: 20px;
+
+    margin-bottom: 12px;
+
+    box-shadow: var(--shadow);
+
+    transition:
+        transform var(--transition),
+        box-shadow var(--transition);
+}
+
+.task_details:hover {
+    transform: translateY(-2px);
+
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+}
+
+.task_details h2 {
+    display: inline;
+
+    color: var(--text-light);
+
+    font-size: 12px;
+
+    font-weight: 500;
+}
+
+.task_details p {
+    display: inline;
+
+    font-size: 14px;
+
+    margin-right: 20px;
+}
+
+
+/* =========================================================
+   NO TASKS ON GOAL PAGE
+   ========================================================= */
+
+#no_tasks_goal_page {
+    padding: 50px;
+
+    text-align: center;
+
+    background: var(--surface);
+
+    border: 1px dashed var(--border);
+
+    border-radius: var(--radius);
+
+    color: var(--text-light);
+}
+
+#no_tasks_goal_page a {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 42px;
+    height: 42px;
+
+    margin-top: 15px;
+
+    border-radius: 50%;
+
+    background: var(--pink);
+
+    color: #5c3b47;
+
+    text-decoration: none;
+
+    font-size: 24px;
+
+    transition:
+        transform var(--transition),
+        background var(--transition);
+}
+
+#no_tasks_goal_page a:hover {
+    background: #eab5c6;
+
+    transform: rotate(90deg);
+}
+
+
+/* =========================================================
+   ADD TASK / ADD GOAL / ADD DAY FORMS
+   ========================================================= */
+
+#form_task,
+#form_goal,
+#form_day {
+    max-width: 600px;
+
+    padding: 30px;
+
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+
+    border-radius: var(--radius);
+
+    box-shadow: var(--shadow);
+}
+
+#form_day p {
+    margin-bottom: 20px;
+
+    color: var(--text-light);
+
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   DJANGO FORM
+   ========================================================= */
+
+form p {
+    margin-bottom: 17px;
+}
+
+form label {
+    display: block;
+
+    margin-bottom: 7px;
+
+    color: var(--text-light);
+
+    font-size: 13px;
+
+    font-weight: 500;
+}
+
+form input,
+form textarea,
+form select {
+    width: 100%;
+
+    padding: 11px 13px;
+
+    border: 1px solid var(--border);
+
+    border-radius: var(--radius-small);
+
+    background: #ffffff;
+
+    color: var(--text);
+
+    font-family: inherit;
+
+    font-size: 14px;
+
+    outline: none;
+
+    transition:
+        border-color var(--transition),
+        box-shadow var(--transition);
+}
+
+form input:focus,
+form textarea:focus,
+form select:focus {
+    border-color: var(--pink-dark);
+
+    box-shadow: 0 0 0 3px var(--pink-light);
+}
+
+form textarea {
+    min-height: 120px;
+
+    resize: vertical;
+}
+
+
+/* =========================================================
+   FORM BUTTONS
+   ========================================================= */
+
+#form_task button,
+#form_goal button,
+#form_day button {
+    margin-top: 5px;
+
+    padding: 10px 20px;
+
+    border: none;
+
+    border-radius: 50px;
+
+    background: var(--pink);
+
+    color: #5c3b47;
+
+    font-size: 13px;
+
+    cursor: pointer;
+
+    transition:
+        background var(--transition),
+        transform var(--transition);
+}
+
+#form_task button:hover,
+#form_goal button:hover,
+#form_day button:hover {
+    background: #eab5c6;
+
+    transform: translateY(-1px);
+}
+
+#form_task button:active,
+#form_goal button:active,
+#form_day button:active {
+    transform: scale(0.97);
+}
+
+
+/* =========================================================
+   DJANGO FORM ERRORS
+   ========================================================= */
+
+.errorlist {
+    list-style: none;
+
+    margin: 5px 0 8px;
+
+    color: var(--red-text);
+
+    font-size: 12px;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 800px) {
+
+    :root {
+        --sidebar-width: 180px;
+    }
+
+    header {
+        padding: 0 25px;
+    }
+
+    header h1 {
+        font-size: 17px;
+    }
+
+    header h1::after {
+        display: none;
+    }
+
+    main {
+        padding:
+            110px
+            25px
+            60px;
+    }
+
+    footer {
+        padding: 20px 25px;
+    }
+
+    .goal {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    :root {
+        --sidebar-width: 0px;
+    }
+
+    /*
+       On small screens the sidebar becomes a top navigation.
+    */
+
+    nav {
+        position: relative;
+
+        width: 100%;
+        height: auto;
+
+        border-right: none;
+
+        border-bottom: 1px solid var(--border);
+
+        padding: 10px 15px;
+    }
+
+    nav ul {
+        flex-direction: row;
+
+        flex-wrap: wrap;
+
+        margin-top: 0;
+
+        gap: 5px;
+    }
+
+    nav li a {
+        padding: 8px 10px;
+
+        font-size: 12px;
+    }
+
+    header {
+        position: relative;
+
+        left: 0;
+
+        height: 65px;
+
+        padding: 0 20px;
+    }
+
+    main {
+        margin-left: 0;
+
+        padding: 30px 18px 50px;
+    }
+
+    footer {
+        margin-left: 0;
+
+        padding: 20px;
+    }
+
+    #day {
+        font-size: 27px;
+    }
+
+    .goal {
+        grid-template-columns: 1fr;
+
+        gap: 8px;
+    }
+
+    .task_to_achive,
+    .task_details {
+        padding: 17px;
+    }
+
+    #form_task,
+    #form_goal,
+    #form_day {
+        padding: 20px;
+    }
+}
+
+/* =========================================================
+   DELETE BUTTON
+   ========================================================= */
+
+.delete_button {
+/*    margin-top: 16px;*/
+
+    border: none;
+
+    padding: 9px 18px;
+
+    border-radius: 50px;
+
+    background: var(--pink);
+
+    color: #5c3b47;
+
+    font-size: 13px;
+
+    cursor: pointer;
+
+    transition:
+        background var(--transition),
+        transform var(--transition);
+}
+
+.delete_button:hover {
+    background: #eab5c6;
+
+    transform: translateY(-1px);
+}
+
+.delete_button:active {
+    transform: scale(0.97);
+}

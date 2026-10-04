@@ -1,0 +1,43 @@
+{% extends 'studyos/index.html' %}
+
+{% block content %}
+<div id="goal_details">
+    <span>{{goal.title}}</span> <span>{{goal.deadline}}</span> <span>{{goal.priority}}</span>
+    <span>{{goal.date_created}}</span> <span>
+        <form action="{% url 'studyos:delete-goal' pk=goal.pk %}" method="post">
+            {% csrf_token %}
+            <button type="submit" class="delete_button">delete</button>
+        </form>
+    </span>
+</div>
+<div id="goal_detail">
+    {% if tasks_number != 0 %}
+    <div id="number_tasks">Number of tasks {{tasks_number}}</div>
+
+    {% for task in tasks %}
+    <div class="task_details">
+        <h2>Name of task: </h2>
+        <p>{{task.name}}</p>
+        <h2>Period of task: </h2>
+        <p>{{task.period}}</p>
+        <h2>Date created</h2>
+        <p>{{task.date_created}}</p>
+        <form action="{% url 'studyos:delete-task' pk=task.pk %}" method="post">
+            {% csrf_token %}
+            <button type="submit" class="done_button">delete</button>
+        </form>
+    </div>
+    {% empty %}
+    <div>
+    </div>
+    {% endfor %}
+    <a href="{% url 'studyos:add-task' %}">Add new tasks </a>
+    {% else %}
+    <div id="no_tasks_goal_page">
+        <p>There is no tasks now</p>
+        <a href="{% url 'studyos:add-task' %}">+</a>
+    </div>
+
+    {% endif %}
+</div>
+{% endblock %}

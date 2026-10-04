@@ -1,0 +1,27 @@
+{% extends 'studyos/index.html' %}
+
+{% block content %}
+<div id="add_goal_button"><a href="{% url 'studyos:add-goal' %}">+</a></div>
+{% for goal in goals %}
+<div class="goal">
+    <div class="goal_name"><a href="{% url 'studyos:goal-detail' pk=goal.pk %}">{{goal.title}}</a></div>
+    <div class="goal_deadline">{{goal.deadline}}</div>
+    {% if goal.priority == 'High' %}
+    <div class="goal_priority" style="color: red;">{{goal.priority}}</div>
+    {% elif goal.priority == 'Medium' %}
+    <div class="goal_priority" style="color: yellow;">{{goal.priority}}</div>
+    {% elif goal.priority == 'Low' %}
+    <div class="goal_priority" style="color: green;">{{goal.priority}}</div>
+    {% endif %}
+    <div class="goal_date_created">{{goal.date_created}}</div>
+    <div>
+        <form action="{% url 'studyos:delete-goal' pk=goal.pk %}" method="post">
+            {% csrf_token %}
+            <button type="submit" class="done_button">delete</button>
+        </form>
+    </div>
+</div>
+{% empty %}
+<div id="no_goal">No goals yet... Add new one</div>
+{% endfor %}
+{% endblock %}

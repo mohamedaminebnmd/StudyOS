@@ -1,0 +1,12 @@
+{% extends 'studyos/index.html' %}
+
+{% block content %}
+<div id="form_task">
+    <form action="#" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Save task</button>
+    </form>
+</div>
+    
+{% endblock %}

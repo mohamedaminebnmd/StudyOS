@@ -1,0 +1,24 @@
+{% extends 'studyos/index.html' %}
+
+{% block content %}
+    <h2 id="day">{{day.day}}</h2>
+    <h3 id="time_dispo">{{day.time_dispo}} minutes</h3>
+    {% for task in tasks %}
+        <div class="task_to_achive">
+            <h2>Name of task: </h2> <p>{{task.name}}</p>
+            <h2>Period of task: </h2> <p>{{task.period}} min</p>
+            {% if task.status == 'Completed' %}
+            <h2>Done</h2>
+            {% else %}
+            <form action="{% url 'studyos:complete-task' pk=task.pk %}" method="post">
+                {% csrf_token %}
+                <button type="submit" class="done_button">Mark as done</button>
+            </form>
+            {% endif %}
+        </div>
+        {% empty %}
+        <div>
+            <p class="No_tasks">No tasks yet!</p>
+        </div>
+        {% endfor %}
+{% endblock %}

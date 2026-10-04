@@ -1,0 +1,12 @@
+{% extends 'studyos/index.html' %}
+
+{% block content %}
+    <div id="form_day">
+        <p>Give us your available time in minutes for today</p>
+        <form action="#" method="post">
+            {% csrf_token %}
+            <div>{{ form.as_p }}</div>
+            <button type="submit">Save</button>
+        </form>
+    </div>
+{% endblock %}
